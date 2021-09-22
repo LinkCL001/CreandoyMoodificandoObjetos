@@ -1,8 +1,17 @@
+function Consultorio (nombre, pacientes){
+    this.nombre = nombre;
+    this.pacientes = pacientes || [];//no recibe valor por defecto crea arreglo vacio
+}
+//funcion constructora en su prototipo
+Consultorio.prototype.agregar_paciente = function(_paciente){
+    this.pacientes.push(_paciente);
+}
+//4 intrancias funcion constructora paciente 4 parametros
 function Paciente (nombre, edad, rut, diagnostico) {
-        // this.nombre = nombre;
-        // this.edad = edad;
-        // this.rut = rut;
-        // this.diagnosico = diagnostico;
+        this.nombre = nombre;
+        this.edad = edad;
+        this.rut = rut;
+        this.diagnosico = diagnostico;
     var _nombre = nombre
         Object.defineProperty(this, "_getNombre", {
             get: function() {
@@ -80,17 +89,6 @@ Paciente.prototype.getDiagnostico = function(){
 Paciente.prototype.setDiagnostico = function(diagnostico){
     this._setDiagnostico = diagnostico;
 };
-
 var paciente1 = new Paciente("Juan", 32, "17.103.697-6", "SBO");
-
-
-function Consultorio (nombre, pacientes){
-    this.nombre = nombre;
-    this.pacientes = pacientes || [];
-}
-
-Consultorio.prototype.agregar_paciente = function(_paciente){
-    this.personas.push(_paciente);
-}
 
 var consultorio1 = new Consultorio("Consultorio Desafio Latam", [paciente1])
