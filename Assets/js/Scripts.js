@@ -8,10 +8,11 @@ Consultorio.prototype.agregar_paciente = function(_paciente){
 }
 //4 intrancias funcion constructora paciente 4 parametros
 function Paciente (nombre, edad, rut, diagnostico) {
-        this.nombre = nombre;
-        this.edad = edad;
-        this.rut = rut;
-        this.diagnosico = diagnostico;
+        this._nombre = nombre;
+        this._edad = edad;
+        this._rut = rut;
+        this._diagnosico = diagnostico;
+//implementar get y set
     var _nombre = nombre
         Object.defineProperty(this, "_getNombre", {
             get: function() {
@@ -57,7 +58,7 @@ function Paciente (nombre, edad, rut, diagnostico) {
             }
         });             
 }
-
+//metodo mediante la propiedad prototype
 Paciente.prototype.getNombre = function(){
     return this._getNombre;
 };
@@ -89,6 +90,7 @@ Paciente.prototype.getDiagnostico = function(){
 Paciente.prototype.setDiagnostico = function(diagnostico){
     this._setDiagnostico = diagnostico;
 };
+//instanciar utilizando funcion new
 var paciente1 = new Paciente("Juan", 32, "17.103.697-6", "SBO");
 
 var consultorio1 = new Consultorio("Consultorio Desafio Latam", [paciente1])
