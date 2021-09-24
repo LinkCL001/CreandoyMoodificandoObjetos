@@ -12,7 +12,7 @@ function Paciente (nombre, edad, rut, diagnostico) {
         this._edad = edad;
         this._rut = rut;
         this._diagnosico = diagnostico;
-//implementar get y set
+//implementar get y set para los 4 parametros
     var _nombre = nombre
         Object.defineProperty(this, "_getNombre", {
             get: function() {
@@ -94,3 +94,5 @@ Paciente.prototype.setDiagnostico = function(diagnostico){
 var paciente1 = new Paciente("Juan", 32, "17.103.697-6", "SBO");
 
 var consultorio1 = new Consultorio("Consultorio Desafio Latam", [paciente1])
+
+console.log(consultorio1)
