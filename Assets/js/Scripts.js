@@ -1,10 +1,32 @@
 function Consultorio (nombre, pacientes){
-    this.nombre = nombre;
-    this.pacientes = pacientes || [];//no recibe valor por defecto crea arreglo vacio
+    this._nombre = nombre;
+    this._pacientes = pacientes || [];//no recibe valor por defecto crea arreglo vacio
+    // var _nombre = nombre
+    //     Object.defineProperty(this, "_getNombre", {
+    //         get: function() {
+    //             return _nombre
+    //         }
+    //     });
+    //     Object.defineProperty(this, "_setNombre", {
+    //         set: function(nombre){
+    //             _nombre = nombre
+    //         }
+    //     }); 
+    var _pacientes = pacientes
+        Object.defineProperty(this, "_getPacientes", {
+            get: function() {
+                return _pacientes
+            }
+        });
+        Object.defineProperty(this, "_setPacientes", {
+            set: function(pacientes){
+                _pacientes = pacientes
+            }
+        });     
 }
-//funcion constructora en su prototipo
-Consultorio.prototype.agregar_paciente = function(_paciente){
-    this.pacientes.push(_paciente);
+//funcion constructora en su prototipo para consultorio
+Consultorio.prototype.agregar_paciente = function(_pacientes){
+    this.pacientes.push(_pacientes);
 }
 //4 intrancias funcion constructora paciente 4 parametros
 function Paciente (nombre, edad, rut, diagnostico) {
